@@ -36,10 +36,19 @@ data=dataSequence2jsonFormat(dataFileName,"00:07:80:65:DF:D1","REPOS",16,50,"Rep
 with open(dataFileName+".json", "w") as outfile:
     outfile.write(data)
 
+
+dataFileName="95476D_S1_2_2023-09-22_10-40-37"
+data=dataSequence2jsonFormat(dataFileName,"00:07:80:65:DF:D1","DESCENTE",16,50,"Descente de 4 etages",["INDEX", "RESP_THORAX", "RESP_ABDOMEN", "ACC_VERTICAL", "ACC_HORIZONTAL"])
+with open(dataFileName+".json", "w") as outfile:
+    outfile.write(data)
     
-# =============================================================================
-# dataFileName="95476D_S1_2_2023-09-22_10-40-37"
-# data=dataSequence2jsonFormat(dataFileName,"00:07:80:65:DF:D1","DESCENTE",16,50,"Descente de 4 etages",["INDEX", "RESP_THORAX", "RESP_ABDOMEN", "ACC_VERTICAL", "ACC_HORIZONTAL"])
-# with open(dataFileName+".json", "w") as outfile:
-#     outfile.write(data)
-# =============================================================================
+dataFileName="95476D_S1_1_2023-09-22_10-39-22"
+data=dataSequence2jsonFormat(dataFileName,"00:07:80:65:DF:D1","MONTEE",16,50,"Montee de 4 etages",["INDEX", "RESP_THORAX", "RESP_ABDOMEN", "ACC_VERTICAL", "ACC_HORIZONTAL"])
+with open(dataFileName+".json", "w") as outfile:
+    outfile.write(data)
+
+
+dataFileName="95476D_S1_3_2023-09-22_10-41-24"
+data=dataSequence2jsonFormat(dataFileName,"00:07:80:65:DF:D1","DESCENTE",16,50,"Descente de 4 etages",["INDEX", "RESP_THORAX", "RESP_ABDOMEN", "ACC_VERTICAL", "ACC_HORIZONTAL"])
+with open(dataFileName+".json", "w") as outfile:
+    outfile.write(data)

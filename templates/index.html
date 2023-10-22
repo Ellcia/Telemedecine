@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App with Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Flask App with Bootstrap</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="parametre">Paramètre :</label>
+                <input type="text" name="parametre" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
+        
+        <div class="mt-4">
+            {% if dataframe %}
+                {{ dataframe | safe }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

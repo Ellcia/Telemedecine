@@ -4,26 +4,6 @@ import pandas as pd
 
 
 
-def postJson(jsonfile):
-    url="https://www.gaalactic.fr/~sev_5106e/ws/physioData"
-    with open(jsonfile) as f:
-        json1=json.load(f)
-        dataset=json.dumps(json1)
-        
-    data={'dataset':dataset}
-
-    headers = {
-        "X-Auth": "Basic OTU0NzZEOkpncTdlWDU5QEA=",
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    
-    response = requests.post(url, data=data, headers=headers)
-    print(response.text)
-    
-    
-    
-
-#postJson("95476D_S1_1_2023-09-22_10-39-22.json")
 def getJson(params):
     url="https://www.gaalactic.fr/~sev_5106e/ws/physioData"
     headers = {
@@ -52,5 +32,3 @@ def getJson(params):
             print("\n")
     df.to_csv('datagret.csv', index=False)
     return df
-
-df =getJson("/E9/S1/3")
