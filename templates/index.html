@@ -16,6 +16,9 @@
         </form>
         
         <div class="mt-4">
+            {% if image_path %}
+                <img src="{{ url_for('static', filename=image_path) }}" alt="Ca marche pas">
+            {% endif %}
             {% if dataframe %}
                 {{ dataframe | safe }}
             {% endif %}
