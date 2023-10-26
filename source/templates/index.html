@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Environnement de télémédecine : Respiration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Environnement de télémédecine : Respiration</h1>
+        </br>
+        <form method="post" class="form-inline">
+            <div class="form-group">
+                <label for="part1" class="mr-2">Student Id:</label>
+                <input type="text" name="part1" class="form-control">
+            </div>
+    
+            <div class="form-group ml-2">
+                <label for="part2" class="mr-2">Session Id:</label>
+                <input type text="text" name="part2" class="form-control">
+            </div>
+    
+            <div class="form-group ml-2">
+                <label for="part3" class="mr-2">Sequence Id:</label>
+                <input type="text" name="part3" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary ml-2">Envoyer</button>
+        </form>
+
+
+
+
+
+        </br>
+
+        <!-- Onglets pour afficher l'overview, thorax et abdomen -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="thorax-tab" data-toggle="tab" href="#thorax" role="tab" aria-controls="thorax" aria-selected="false">Respiration thorax</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="abdomen-tab" data-toggle="tab" href="#abdomen" role="tab" aria-controls="abdomen" aria-selected="false">Respiration abdomen</a>
+            </li>
+        </ul>
+    </div>
+    
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <!-- Contenu de l'onglet Overview -->
+                {% if image_path_overview %}
+                    <div class="text-center">
+                        <img src="{{ url_for('static', filename=image_path_overview) }}" alt="Overview">
+                    </div>
+                {% endif %}
+                {% if dataframe_info is not none %}
+                <div class="text-center">
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                {% for column in dataframe_info.columns %}
+                                    <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for index, row in dataframe_info.iterrows() %}
+                                <tr>
+                                    {% for value in row %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            <div class="tab-pane" id="thorax" role="tabpanel" aria-labelledby="thorax-tab">
+                <!-- Contenu de l'onglet Thorax -->
+                {% if image_path_thorax %}
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename=image_path_thorax) }}", class="rounded mx-auto d-block", alt="Thorax">
+                </div>
+
+                {% endif %}
+                <!-- Tableau pour df Thorax -->
+                {% if dataframe_thorax is not none %}
+                <div class="container">
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                {% for column in dataframe_thorax.columns %}
+                                    <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for index, row in dataframe_thorax.iterrows() %}
+                                <tr>
+                                    {% for value in row %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+            <div class="tab-pane" id="abdomen" role="tabpanel" aria-labelledby="abdomen-tab">
+                <!-- Contenu de l'onglet Abdomen -->
+                {% if image_path_abdomen %}
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename=image_path_abdomen) }}" alt="Abdomen">
+                </div>
+                {% endif %}
+                <!-- Tableau pour df Abdomen -->
+                {% if dataframe_abdomen is not none %}
+                <div class="container">
+
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                {% for column in dataframe_abdomen.columns %}
+                                    <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for index, row in dataframe_abdomen.iterrows() %}
+                                <tr>
+                                    {% for value in row %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    <!-- Fin des onglets -->
+    </div>
+</div>
+
+
+    <!-- Inclure Bootstrap et jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
