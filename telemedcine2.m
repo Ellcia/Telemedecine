@@ -7,7 +7,7 @@ data = data(:, 2:end);
 % Créer un vecteur pour l'axe x
 x = 1:size(data, 1);
 
-% Points de découpe
+% Pontis de découpe
 cut_points = [2216, 4949, 7250, 9892];
 
 % Créer une figure

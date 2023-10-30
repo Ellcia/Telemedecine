@@ -43,8 +43,8 @@ legend('Signal 2 Original', 'Signal 2 Filtré');
 grid on;
 
 % Sélectionner les deux dernières colonnes
-signal3 = data(:, 4);
-signal4 = data(:, 5);
+signal3 = data(:, 3);
+signal4 = data(:, 4);
 
 % Fenêtre de moyenne glissante (par exemple, une fenêtre de largeur 5)
 window_size = 5;
